@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Module to determine if all boxes can be opened."""
 
+
 def canUnlockAll(boxes):
     """Determine if all boxes can be opened."""
     newList = []
-    compareList= []
+    compareList = []
 
     for i in range(1, len(boxes)):
         compareList.append(i)
