@@ -20,7 +20,6 @@ def canUnlockAll(boxes):
 
         newList.sort()
 
-
     if newList == compareList:
         return True
     else:
