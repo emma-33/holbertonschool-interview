@@ -4,23 +4,14 @@
 
 def canUnlockAll(boxes):
     """Determine if all boxes can be opened."""
-    newList = [0]
     compareList = [0]
 
-    for i in range(1, len(boxes)):
-        compareList.append(i)
+    for row in compareList:
+        for element in boxes[row]:
+            if (element not in compareList and element != 0 and
+               element < len(boxes)):
+                compareList.append(element)
 
-    for row in boxes:
-        for element in row:
-            if element not in newList and element != 0:
-                newList.append(element)
-                break
-            elif element in newList:
-                continue
-
-        newList.sort()
-
-    if newList == compareList:
-        return True
-    else:
+    if len(compareList) != len(boxes):
         return False
+    return True
