@@ -3,12 +3,13 @@
 to reach a given number of characters in a text file.
 """
 
+
 def minOperations(n):
     """Determine the minimum number of operations to reach n characters."""
 
     if n <= 1:
         return 0
-    
+
     min_operations = 0
     factor = 2
 
@@ -19,4 +20,3 @@ def minOperations(n):
         factor += 1
 
     return min_operations
-
