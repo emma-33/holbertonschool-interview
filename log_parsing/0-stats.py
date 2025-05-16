@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" Script that reads stdin and computes HTTP metrics"""
-
+""" 
+Script that reads stdin and computes HTTP metrics
+"""
 
 import sys
 import re
 from collections import defaultdict
-
 
 total_size = 0
 status_counts = defaultdict(int)
