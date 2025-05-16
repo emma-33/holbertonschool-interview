@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Script that reads stdin and computes HTTP metrics:
-total file size
-count of each status code
+"""
+Script that reads stdin and computes HTTP metrics:
+
+- Total file size
+- Count of each status code
 """
 
 
