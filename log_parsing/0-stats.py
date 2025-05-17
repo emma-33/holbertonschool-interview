@@ -4,7 +4,6 @@ Script that reads stdin and computes HTTP metrics
 """
 
 import sys
-import re
 from collections import defaultdict
 
 if __name__ == "__main__":
