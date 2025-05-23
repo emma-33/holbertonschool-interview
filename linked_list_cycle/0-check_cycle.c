@@ -8,18 +8,15 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *current;
-	listint_t *temp;
+	listint_t *current = list;
+	listint_t *new_node = list;
 
-	current = list;
-	temp = list;
-
-	while (current && temp && temp->next)
+	while (current && new_node && new_node->next)
 	{
 		current = current->next;
-		temp = temp->next->next;
+		new_node = new_node->next->next;
 
-		if (current == temp)
+		if (current == new_node)
 			return (1);
 	}
 	return (0);
