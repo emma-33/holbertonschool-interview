@@ -30,7 +30,7 @@ skiplist_t *linear_skip(skiplist_t *head, int value)
         {
             break;
         }
-        if (express->next == NULL)
+        if (express->express == NULL)
         {
             search = express;
             while (express->next != NULL)
@@ -47,7 +47,7 @@ skiplist_t *linear_skip(skiplist_t *head, int value)
         printf("Value checked at index [%lu] = [%d]\n", search->index, search->n);
         if (search->n == value)
         {
-            return (search);
+            break;
         }
         search = search->next;
     }
