@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+
+"""
+0-rain
+"""
+
+
 def rain(walls):
     """
     Calculate the amount of rainwater that can be trapped
