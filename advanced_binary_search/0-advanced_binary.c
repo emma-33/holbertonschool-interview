@@ -16,9 +16,6 @@ int advanced_binary(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
-	if (size == 1 && array[0] == value)
-		return (1);
-
 	int beg = 0;
 	int end = size - 1;
 
@@ -55,7 +52,7 @@ int helper_binary_search(int *array, int beg, int end, int value)
 
 		if (array[half] == value && array[half - 1] != value)
 			return (half);
-		else if (array[half] >= value)
+		else if (array[half] > value)
 			return (helper_binary_search(array, beg, half - 1, value));
 		else
 			return (helper_binary_search(array, half + 1, end, value));
