@@ -16,6 +16,9 @@ int advanced_binary(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
+	if (size == 1)
+		return (1);
+
 	int beg = 0;
 	int end = size - 1;
 
