@@ -16,6 +16,9 @@ int advanced_binary(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
+	if (size == 1)
+		return (1);
+
 	int beg = 0;
 	int end = size - 1;
 
@@ -37,25 +40,35 @@ int helper_binary_search(int *array, int beg, int end, int value)
 {
 	if (end >= beg)
 	{
+		print_array(array, beg, end);
+
 		int half = beg + (end - beg) / 2;
-		int i;
-
-		printf("Searching in array: ");
-
-		for (i = beg; i <= end; i++)
-		{
-			printf("%d", array[i]);
-			if (i < end)
-				printf(", ");
-		}
-		printf("\n");
-
 		if (array[half] == value && array[half - 1] != value)
 			return (half);
-		else if (array[half] > value)
+
+		if (array[half] >= value)
 			return (helper_binary_search(array, beg, half - 1, value));
-		else
-			return (helper_binary_search(array, half + 1, end, value));
+
+		return (helper_binary_search(array, half + 1, end, value));
 	}
 	return (-1);
+}
+
+/**
+ * print_array - Prints an array of integers.
+ * @array: Pointer to the first element of the array.
+ * @beg: The starting index of the array to print.
+ * @end: The ending index of the array to print.
+ * Return: void
+ */
+void print_array(int *array, int beg, int end)
+{
+	printf("Searching in array: ");
+	for (int i = beg; i <= end; i++)
+	{
+		printf("%d", array[i]);
+		if (i != end)
+			printf(", ");
+	}
+	printf("\n");
 }
