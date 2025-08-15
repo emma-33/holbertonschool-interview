@@ -13,10 +13,11 @@ def count_words(subreddit, word_list, result=None, after=None):
         result (dict, optional): A dictionary to hold word counts.
         after (str, optional): Pagination token for the next set of results.
     """
+    base_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     if after is None:
-        subreddit_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+        subreddit_url = base_url
     else:
-        subreddit_url = f'https://www.reddit.com/r/{subreddit}/hot.json?after={after}'
+        subreddit_url = f'{base_url}?after={after}'
 
     request = requests.get(
         subreddit_url,
