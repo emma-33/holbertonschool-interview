@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 		{
 			_putchar(error[i]);
 		}
-		return (98);
+		exit(98);
 	}
 	int len1 = strlen(num1);
 	int len2 = strlen(num2);
