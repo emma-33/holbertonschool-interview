@@ -12,7 +12,7 @@ int _is_digit(char *s)
 
 	while (s[i] != '\0')
 	{
-		if (s[i] < '0' || s[i] > '9')
+		if (!isdigit((unsigned char)s[i]))
 			digit = 0;
 		else
 			digit = 1;
