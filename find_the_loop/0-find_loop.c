@@ -21,28 +21,15 @@ listint_t *find_listint_loop(listint_t *head)
 
 		if (slow == fast)
 		{
-			return (helper_loop(head, slow));
+			slow = head;
+			while (fast != NULL)
+			{
+				if (slow == fast)
+					return (slow);
+				slow = slow->next;
+				fast = fast->next;
+			}
 		}
 	}
 	return (NULL);
-}
-
-/**
- * helper_loop - Check if a node is in a list
- *
- * @head: A pointer to the head of the loop
- * @slow: Current node to check
- *
- * Return: The address of the node
- */
-listint_t *helper_loop(listint_t *head, listint_t *slow)
-{
-	listint_t *entry = head;
-
-	while (entry != slow)
-	{
-		entry = entry->next;
-		slow = slow->next;
-	}
-	return (entry);
 }
