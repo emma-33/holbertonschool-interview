@@ -17,7 +17,12 @@ List *create_node(char *str)
 	if (!new_node)
 		return (NULL);
 
-	new_node->str = strdup(str);
+	char *dup_str = strdup(str);
+
+	if (!dup_str)
+		return (NULL);
+
+	new_node->str = dup_str;
 	new_node->prev = new_node->next = NULL;
 
 	return (new_node);
