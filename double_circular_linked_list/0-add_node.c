@@ -14,6 +14,9 @@ List *create_node(char *str)
 {
 	List *new_node = (List *)malloc(sizeof(List));
 
+	if (!new_node)
+		return (NULL);
+
 	new_node->str = strdup(str);
 	new_node->prev = new_node->next = NULL;
 
