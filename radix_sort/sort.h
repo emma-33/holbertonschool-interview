@@ -10,5 +10,4 @@ void print_array(const int *array, size_t size);
 int get_max(int *array, size_t size);
 void counter_help(int *array, size_t size, int exp);
 
-
 #endif
