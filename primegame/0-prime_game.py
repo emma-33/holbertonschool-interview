@@ -7,24 +7,19 @@ The player that cannot make a move loses the game.
 """
 
 
-def isPrime(n):
-    """ checks if given num is prime """
+def prime(n):
+    """ creates a list of prime nums """
     if n <= 1:
-        return(False)
-    else:
-        is_prime = True
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                is_prime = False
-                break
-        return(is_prime)
+        return []
 
+    prime_nums = [True] * (n + 1)
+    prime_nums[0] = prime_nums[1] = False
 
-def deleteNums(n, nums):
-    """ delete numbers """
-    for i in range(len(nums)):
-        if nums[i] % n == 0:
-            nums[i] = 0
+    for i in range(2, int(n**0.5) + 1):
+        if prime_nums[i]:
+            for j in range(i * i, n + 1, i):
+                prime_nums[j] = False
+    return prime_nums
 
 
 def isWinner(x, nums):
@@ -34,26 +29,27 @@ def isWinner(x, nums):
     nums : array of numbers
     Return : name of winner or None if no winner found
     """
+    if x < 1 or not nums:
+        return None
+
     Maria = 0
     Ben = 0
 
     max_num = max(nums)
+    prime_nums = prime(max_num)
 
-    for round in range(x):
-        nums2 = list(range(1, max_num + 1))
-        turn = 0
-        while True:
-            change = False
-            for i, n in enumerate(nums2):
-                if n > 1 and isPrime(n):
-                    deleteNums(n, nums2)
-                    change = True
-                    turn += 1
-                    break
-            if change is False:
-                break
-        if turn % 2 != 0:
+    prime_count = [0] * (max_num + 1)
+    count = 0
+
+    for i in range(2, max_num + 1):
+        if prime_nums[i]:
+            count += 1
+        prime_count[i] = count
+
+    for n in nums:
+        if prime_count[n] % 2 != 0:
             Maria += 1
         else:
             Ben += 1
+
     return None if Maria == Ben else ("Maria" if Maria > Ben else "Ben")
