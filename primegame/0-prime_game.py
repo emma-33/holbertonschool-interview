@@ -34,11 +34,13 @@ def isWinner(x, nums):
     nums : array of numbers
     Return : name of winner or None if no winner found
     """
-    nums.sort()
     Maria = 0
     Ben = 0
+
+    max_num = max(nums)
+
     for round in range(x):
-        nums2 = list(range(1, nums[round] + 1))
+        nums2 = list(range(1, max_num + 1))
         turn = 0
         while True:
             change = False
